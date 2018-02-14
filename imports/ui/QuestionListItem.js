@@ -1,10 +1,13 @@
 import React from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
+import {createContainer} from 'meteor/react-meteor-data';
 
 const QuestionListItem = (props) => {
   return (
-    <div>
+    <div onClick={() => {
+      props.Session.set('selectedQuestionId', props.question._id);
+    }}>
       <h5>{ props.question.title || 'Untitled question' }</h5>
       <p>{ moment(props.question.updatedAt).format('M/DD/YY') }</p>
     </div>
@@ -12,7 +15,10 @@ const QuestionListItem = (props) => {
 };
 
 QuestionListItem.propTypes = {
-  question: PropTypes.object.isRequired
+  question: PropTypes.object.isRequired,
+  Session: PropTypes.object.isRequired
 };
 
-export default QuestionListItem;
+export default createContainer(() => {
+  return {Session};
+}, QuestionListItem);
