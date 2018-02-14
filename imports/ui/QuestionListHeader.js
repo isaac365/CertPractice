@@ -1,6 +1,7 @@
 import React from 'react';
 import {Meteor} from 'meteor/meteor';
 import {createContainer} from 'meteor/react-meteor-data';
+import PropTypes from 'prop-types';
 
 export const QuestionListHeader = (props) => {
   return (
@@ -11,6 +12,10 @@ export const QuestionListHeader = (props) => {
     </div>
   )
 }; 
+
+QuestionListHeader.propTypes = {
+  meteorCall: PropTypes.func.isRequired
+};
 
 export default createContainer(() => {
   return {
