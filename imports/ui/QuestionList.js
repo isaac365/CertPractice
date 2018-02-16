@@ -2,6 +2,7 @@ import React from 'react';
 import {Meteor} from 'meteor/meteor';
 import {createContainer} from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import {Session} from 'meteor/session';
 
 import {studyQuestions} from '../api/questions';
 import QuestionListHeader from './QuestionListHeader';
@@ -26,9 +27,15 @@ QuestionList.propTypes = {
 };
 
 export default createContainer(() => {
+  const selectedNoteId = Session.get('selectedNoteId');
   Meteor.subscribe('questions');
 
   return {
-    questions: studyQuestions.find().fetch()
+    questions: studyQuestions.find().fetch().map((question) => {
+      return { 
+        ...question,
+        selected: question._id === selectedQuestionId
+      };
+    })
   };
 }, QuestionList);

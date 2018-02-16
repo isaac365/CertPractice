@@ -10,6 +10,7 @@ export const QuestionListItem = (props) => {
       props.Session.set('selectedQuestionId', props.question._id);
     }}>
       <h5>{ props.question.question || 'Untitled question' }</h5>
+      {props.question.selected ? 'selected' : undefined}
       <p>{ moment(props.question.updatedAt).format('M/DD/YY') }</p>
     </div>
   );
