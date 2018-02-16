@@ -1,7 +1,8 @@
 import React from 'react';
 
 import PrivateHeader from './PrivateHeader';
-import QuestionList from './QuestionList'
+import QuestionList from './QuestionList';
+import Editor from './Editor';
 
 export default () => {
 	return (
@@ -9,6 +10,7 @@ export default () => {
 			<PrivateHeader title="Dashboard"/>
 			<div className="page-content" >
 				<QuestionList/>
+				<Editor/>
 			</div>
 		</div>
 	);

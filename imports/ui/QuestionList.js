@@ -27,7 +27,7 @@ QuestionList.propTypes = {
 };
 
 export default createContainer(() => {
-  const selectedNoteId = Session.get('selectedNoteId');
+  const selectedQuestionId = Session.get('selectedQuestionId');
   Meteor.subscribe('questions');
 
   return {
