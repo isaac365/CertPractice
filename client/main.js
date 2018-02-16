@@ -25,5 +25,6 @@ Tracker.autorun(() => {
 
 //Renders the application
 Meteor.startup(() => {
+  Session.set('selectedQuestionId', undefined)
   ReactDOM.render(routes, document.getElementById('app'));
 });

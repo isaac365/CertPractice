@@ -3,26 +3,37 @@ import React from 'react';
 import expect from 'expect';
 import {mount} from 'enzyme';
 
-import QuestionListItem from './QuestionListItem';
+import {questions} from '../fixtures/fixtures';
+import {QuestionListItem} from './QuestionListItem';
 
 if(Meteor.isClient) {
   describe('QuestionListItem', function () {
-     
-    it('should render title and timestamp', function () {
-      const title = 'My test title';
-      const updatedAt = 1486137505429;
-      const wrapper = mount(<QuestionListItem question={{title, updatedAt}}/> );
+    let Session;
 
-      expect(wrapper.find('h5').text()).toBe(title);
+    beforeEach(() => {
+      Session = {
+        set: expect.createSpy()
+      };
+    });
+     
+    it('should render question and timestamp', function () {
+      const wrapper = mount(<QuestionListItem question={questions[0]} Session={Session} /> );
+
+      expect(wrapper.find('h5').text()).toBe(questions[0].question);
       expect(wrapper.find('p').text()).toBe('2/03/17');
     });
 
     it('should set default question if no question set', function () {
-      const title = '';
-      const updatedAt = 1486137505429;
-      const wrapper = mount(<QuestionListItem question={{title, updatedAt}}/> );
+      const wrapper = mount(<QuestionListItem question={questions[1]} Session={Session}/> );
 
       expect(wrapper.find('h5').text()).toBe('Untitled question');
+    });
+
+    it('should call set on click', function () {
+      const wrapper = mount(<QuestionListItem question={questions[1]} Session={Session}/> );
+
+      wrapper.find('div').simulate('click');
+      expect(Session.set).toHaveBeenCalled('selectedQuestionId', questions[0].id);
     });
   });
 };

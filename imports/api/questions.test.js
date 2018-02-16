@@ -46,7 +46,7 @@ if (Meteor.isServer) {
     });
 
     it('should remove question', function () {
-      Meteor.server.method_handlers['questions.remove'].apply({userId: questionOne.userId}, ['testQuestionId1']);
+      Meteor.server.method_handlers['questions.remove'].apply({userId: questionOne.userId}, [questionOne._id]);
 
       expect(studyQuestions.findOne({_id: questionOne._id})).toNotExist();
     });
@@ -132,7 +132,7 @@ if (Meteor.isServer) {
     });
 
     it('should return zero questions for user that has none', function () {
-      const res = Meteor.server.publish_handlers.questions.apply({userId: 'testid'});
+      const res = Meteor.server.publish_handlers.questions.apply({userId: 'testesttest'});
       const questions = res.fetch();
 
       expect(questions.length).toBe(0);
