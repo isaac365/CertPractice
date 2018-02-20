@@ -11,7 +11,9 @@ import '../imports/startup/simple-schema-configuration.js';
 //Automatically reroute user if they aren't signed in
 Tracker.autorun(() => {
   const isAuthenticated = !!Meteor.userId();
-  onAuthChange(isAuthenticated);
+  const currentPagePrivacy = Session.get('currentPagePrivacy');
+
+  onAuthChange(isAuthenticated, currentPagePrivacy);
 });
 
 //Replaces route to question id
