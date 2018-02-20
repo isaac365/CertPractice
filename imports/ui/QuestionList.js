@@ -31,7 +31,11 @@ export default createContainer(() => {
   Meteor.subscribe('questions');
 
   return {
-    questions: studyQuestions.find().fetch().map((question) => {
+    questions: studyQuestions.find({}, {
+      sort: {
+        updatedAt: -1
+      }
+    }).fetch().map((question) => {
       return { 
         ...question,
         selected: question._id === selectedQuestionId
