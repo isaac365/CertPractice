@@ -68,22 +68,24 @@ export class Editor extends React.Component{
       if(Meteor.userId() == this.props.question.userId) {
         return (
           <div className="editor">
-            <input value={this.state.question} placeholder="Untitled Question" onChange={this.handleQuestionChange.bind(this)}/>
-            <textarea value={this.state.answer1} placeholder="Your answer here" onChange={this.handleAnswerChange.bind(this)} ></textarea>
-            <textarea value={this.state.wrong1} placeholder="Wrong answer here" onChange={this.handleWrongAnswer1Change.bind(this)} ></textarea>
-            <textarea value={this.state.wrong2} placeholder="Wrong answer here" onChange={this.handleWrongAnswer2Change.bind(this)} ></textarea>
-            <textarea value={this.state.wrong3} placeholder="Wrong answer here" onChange={this.handleWrongAnswer3Change.bind(this)} ></textarea>
-            <button onClick={this.handleRemoval.bind(this)}>Delete Question</button>
+            <input className="editor__question" value={this.state.question} placeholder="Untitled Question" onChange={this.handleQuestionChange.bind(this)}/>
+            <textarea className="editor__answers" value={this.state.answer1} placeholder="Your answer here" onChange={this.handleAnswerChange.bind(this)} ></textarea>
+            <textarea className="editor__answers" value={this.state.wrong1} placeholder="Wrong answer here" onChange={this.handleWrongAnswer1Change.bind(this)} ></textarea>
+            <textarea className="editor__answers" value={this.state.wrong2} placeholder="Wrong answer here" onChange={this.handleWrongAnswer2Change.bind(this)} ></textarea>
+            <textarea className="editor__answers" value={this.state.wrong3} placeholder="Wrong answer here" onChange={this.handleWrongAnswer3Change.bind(this)} ></textarea>
+            <div>
+              <button className="button button--secondary" onClick={this.handleRemoval.bind(this)}>Delete Question</button>
+            </div> 
           </div>
         );
       } else {
         return (
           <div className="editor">
-            <textarea readOnly placeholder={this.props.question.question}></textarea>
-            <textarea readOnly placeholder={this.props.question.answer1}></textarea>
-            <textarea readOnly placeholder={this.props.question.wrong1}></textarea>
-            <textarea readOnly placeholder={this.props.question.wrong2}></textarea>
-            <textarea readOnly placeholder={this.props.question.wrong3}></textarea>
+            <textarea className="editor__question" spellcheck="false" readOnly placeholder={this.props.question.question}></textarea>
+            <textarea className="editor__answers" spellcheck="false" readOnly placeholder={this.props.question.answer1}></textarea>
+            <textarea className="editor__answers" spellcheck="false" readOnly placeholder={this.props.question.wrong1}></textarea>
+            <textarea className="editor__answers" spellcheck="false" readOnly placeholder={this.props.question.wrong2}></textarea>
+            <textarea className="editor__answers" spellcheck="false" readOnly placeholder={this.props.question.wrong3}></textarea>
            
           </div>
         );
@@ -92,40 +94,10 @@ export class Editor extends React.Component{
     } else {
       return (
         <div className="editor">
-        <p>{ this.props.selectedQuestionId ? 'Question not found' : 'Pick or create a question to get started'}</p>
+        <p className="editor__message">{ this.props.selectedQuestionId ? 'Question not found' : 'Pick or create a question to get started'}</p>
         </div>
       );
     }
-    
-
-    // <input value={this.state.question} placeholder="Untitled Question" onChange={this.handleQuestionChange.bind(this)}/>
-    // <textarea value={this.state.answer1} placeholder="Your answer here" onChange={this.handleAnswerChange.bind(this)} ></textarea>
-    // <textarea value={this.state.wrong1} placeholder="Wrong answer here" onChange={this.handleWrongAnswer1Change.bind(this)} ></textarea>
-    // <textarea value={this.state.wrong2} placeholder="Wrong answer here" onChange={this.handleWrongAnswer2Change.bind(this)} ></textarea>
-    // <textarea value={this.state.wrong3} placeholder="Wrong answer here" onChange={this.handleWrongAnswer3Change.bind(this)} ></textarea>
-
-
-
-    // if (this.props.question) {
-    //   return (
-    //     <div className="editor">
-    //       <input value={this.state.question} placeholder="Untitled Question" onChange={this.handleQuestionChange.bind(this)}/>
-    //       <textarea value={this.state.answer1} placeholder="Your answer here" onChange={this.handleAnswerChange.bind(this)} ></textarea>
-    //       <textarea value={this.state.wrong1} placeholder="Wrong answer here" onChange={this.handleWrongAnswer1Change.bind(this)} ></textarea>
-    //       <textarea value={this.state.wrong2} placeholder="Wrong answer here" onChange={this.handleWrongAnswer2Change.bind(this)} ></textarea>
-    //       <textarea value={this.state.wrong3} placeholder="Wrong answer here" onChange={this.handleWrongAnswer3Change.bind(this)} ></textarea>
-    //       <button onClick={this.handleRemoval.bind(this)}>Delete Question</button>
-    //       {this.props.question.userId}
-    //     </div>
-    //   );
-    // } else {
-    //   return (
-    //     <div className="editor">
-    //     <p>{ this.props.selectedQuestionId ? 'Question not found' : 'Pick or create a question to get started'}</p>
-    //     <p>{Meteor.userId()}</p>
-    //     </div>
-    //   );
-    // }
   }
 };
 
