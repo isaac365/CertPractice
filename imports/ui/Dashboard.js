@@ -9,8 +9,12 @@ export default () => {
 		<div>
 			<PrivateHeader title="Dashboard"/>
 			<div className="page-content" >
-				<QuestionList/>
-				<Editor/>
+				<div className="page-content__sidebar" >
+					<QuestionList/>
+				</div>
+				<div className="page-content__main">
+					<Editor/>
+				</div>
 			</div>
 		</div>
 	);

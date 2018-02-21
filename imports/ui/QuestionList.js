@@ -11,7 +11,7 @@ import QuestionListEmptyItem from './QuestionListEmptyItem';
 
 export const QuestionList = (props) => {
   return (
-    <div>
+    <div className="item-list">
       <QuestionListHeader/>
       {props.questions.length === 0 ? <QuestionListEmptyItem/> : undefined }
       {props.questions.map((question) => {

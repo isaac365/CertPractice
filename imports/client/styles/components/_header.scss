@@ -1,10 +1,11 @@
 .header {
-  background-color: $header-bg;
+  background: $header-bg;
   color: $header-color;
 }
 
 .header__content {
   display: flex;
+  height: $header-height;
   justify-content: space-between;
   max-width: $site-max-width;
   margin: 0 auto;
