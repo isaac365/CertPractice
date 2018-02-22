@@ -17,7 +17,6 @@ export const QuestionList = (props) => {
       {props.questions.map((question) => {
         return <QuestionListItem key={question._id} question={question} />;
       })}
-      Question List {props.questions.length}
     </div>
   );
 };

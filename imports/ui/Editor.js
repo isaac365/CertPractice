@@ -81,11 +81,11 @@ export class Editor extends React.Component{
       } else {
         return (
           <div className="editor">
-            <textarea className="editor__question" spellcheck="false" readOnly placeholder={this.props.question.question}></textarea>
-            <textarea className="editor__answers" spellcheck="false" readOnly placeholder={this.props.question.answer1}></textarea>
-            <textarea className="editor__answers" spellcheck="false" readOnly placeholder={this.props.question.wrong1}></textarea>
-            <textarea className="editor__answers" spellcheck="false" readOnly placeholder={this.props.question.wrong2}></textarea>
-            <textarea className="editor__answers" spellcheck="false" readOnly placeholder={this.props.question.wrong3}></textarea>
+            <textarea className="editor__question" spellCheck="false" readOnly placeholder={this.props.question.question}></textarea>
+            <textarea className="editor__answers editor__right" spellCheck="false" readOnly placeholder={this.props.question.answer1}></textarea>
+            <textarea className="editor__answers editor__wrong" spellCheck="false" readOnly placeholder={this.props.question.wrong1}></textarea>
+            <textarea className="editor__answers editor__wrong" spellCheck="false" readOnly placeholder={this.props.question.wrong2}></textarea>
+            <textarea className="editor__answers editor__wrong" spellCheck="false" readOnly placeholder={this.props.question.wrong3}></textarea>
            
           </div>
         );

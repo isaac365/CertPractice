@@ -10,14 +10,18 @@
 .editor__question {
   border: none;
   border-bottom: 2px solid $grey;
+  border-radius: 4px;
   font-size: $large-font-size;
   margin-bottom: $large-space;
   outline: none;
   padding: $input-spacing;
+  resize: none;
 }
 
 .editor__answers {
+  border-radius: 4px;
   flex-grow: 1;
+  font-size: $large-font-size / 1.3;
   font-weight: 300;
   margin-bottom: $large-space;
   outline: none;
@@ -29,4 +33,20 @@
   text-align: center;
   margin: $large-space * 2;
   font-style: italic;
+}
+
+.editor__right {
+  cursor: pointer; 
+}
+
+.editor__right:focus {
+  border: 2px solid green;
+}
+
+.editor__wrong {
+  cursor: pointer; 
+}
+
+.editor__wrong:focus {
+  border: 2px solid red;
 }
