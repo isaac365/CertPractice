@@ -39,7 +39,12 @@
   cursor: pointer; 
 }
 
+.editor__right:hover {
+  background-color: $light-grey;
+}
+
 .editor__right:focus {
+  background-color: $light-grey;
   border: 2px solid green;
 }
 
@@ -47,6 +52,11 @@
   cursor: pointer; 
 }
 
+.editor__wrong:hover {
+  background-color: $light-grey;
+}
+
 .editor__wrong:focus {
+  background-color: $light-grey;
   border: 2px solid red;
 }
