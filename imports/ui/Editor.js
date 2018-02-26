@@ -61,8 +61,10 @@ export class Editor extends React.Component{
       });
     }
   }
-  
   render() {
+    
+
+
 
     if (this.props.question) {
       if(Meteor.userId() == this.props.question.userId) {
@@ -79,14 +81,26 @@ export class Editor extends React.Component{
           </div>
         );
       } else {
+  //       let shuffleSort = () => (0.5 - Math.random());
+
+  // // Get your textareas
+  // let txtAreas = Array.from(document.querySelectorAll('.container textarea'))
+
+  // // Define a few grid areas
+  // let styles = ["one", "two", "three", "four"];
+
+  // // Shuffle textareas and add the styles in order by index
+  // txtAreas.sort(shuffleSort).forEach((textarea, i) => {
+  //   textarea.classList.add(styles[i])
+  // })
         return (
-          <div className="editor">
+          
+          <div className="editor container">
             <textarea className="editor__question" spellCheck="false" readOnly placeholder={this.props.question.question}></textarea>
             <textarea className="editor__answers editor__right" spellCheck="false" readOnly placeholder={this.props.question.answer1}></textarea>
             <textarea className="editor__answers editor__wrong" spellCheck="false" readOnly placeholder={this.props.question.wrong1}></textarea>
             <textarea className="editor__answers editor__wrong" spellCheck="false" readOnly placeholder={this.props.question.wrong2}></textarea>
             <textarea className="editor__answers editor__wrong" spellCheck="false" readOnly placeholder={this.props.question.wrong3}></textarea>
-           
           </div>
         );
       }
