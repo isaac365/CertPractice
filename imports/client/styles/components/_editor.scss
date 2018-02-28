@@ -11,7 +11,8 @@
   border: none;
   border-bottom: 2px solid $grey;
   border-radius: 4px;
-  font-size: $large-font-size;
+  font-size: $large-font-size / 1.2;
+  min-height: 100px;
   margin-bottom: $large-space;
   outline: none;
   padding: $input-spacing;
@@ -29,6 +30,17 @@
   resize: none;
 }
 
+.editor__answers1 {
+  border-radius: 4px;
+  flex-grow: 1;
+  font-size: $large-font-size / 1.3;
+  font-weight: 300;
+  margin-bottom: $large-space;
+  min-height: 100px;
+  outline: none;
+  padding: $input-spacing;
+  resize: none;
+}
 .editor__message {
   text-align: center;
   margin: $large-space * 2;
@@ -59,4 +71,27 @@
 .editor__wrong:focus {
   background-color: $light-grey;
   border: 2px solid red;
+}
+
+
+
+.random {
+  display: grid;
+  grid-template-areas: "one" "two" "three" "four";
+}
+
+.one {
+  grid-area: one;
+}
+
+.two {
+  grid-area: two;
+}
+
+.three {
+  grid-area: three;
+}
+
+.four {
+  grid-area: four;
 }

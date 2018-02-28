@@ -80,7 +80,7 @@ export class Editor extends React.Component{
       if(Meteor.userId() == this.props.question.userId) {
         return (
           <div className="editor">
-            <input className="editor__question" value={this.state.question} placeholder="Untitled Question" onChange={this.handleQuestionChange.bind(this)}/>
+            <textarea className="editor__question" value={this.state.question} placeholder="Untitled Question" onChange={this.handleQuestionChange.bind(this)}></textarea>
             <textarea className="editor__answers" value={this.state.answer1} placeholder="Your answer here" onChange={this.handleAnswerChange.bind(this)} ></textarea>
             <textarea className="editor__answers" value={this.state.wrong1} placeholder="Wrong answer here" onChange={this.handleWrongAnswer1Change.bind(this)} ></textarea>
             <textarea className="editor__answers" value={this.state.wrong2} placeholder="Wrong answer here" onChange={this.handleWrongAnswer2Change.bind(this)} ></textarea>
@@ -99,10 +99,10 @@ export class Editor extends React.Component{
             <textarea className="editor__question" spellCheck="false" readOnly placeholder={this.props.question.question}></textarea>
 
             <div className="random">
-              <textarea className="editor__answers editor__right" spellCheck="false" readOnly placeholder={this.props.question.answer1}></textarea>
-              <textarea className="editor__answers editor__wrong" spellCheck="false" readOnly placeholder={this.props.question.wrong1}></textarea>
-              <textarea className="editor__answers editor__wrong" spellCheck="false" readOnly placeholder={this.props.question.wrong2}></textarea>
-              <textarea className="editor__answers editor__wrong" spellCheck="false" readOnly placeholder={this.props.question.wrong3}></textarea>
+              <textarea className="editor__answers1 editor__right" spellCheck="false" readOnly placeholder={this.props.question.answer1}></textarea>
+              <textarea className="editor__answers1 editor__wrong" spellCheck="false" readOnly placeholder={this.props.question.wrong1}></textarea>
+              <textarea className="editor__answers1 editor__wrong" spellCheck="false" readOnly placeholder={this.props.question.wrong2}></textarea>
+              <textarea className="editor__answers1 editor__wrong" spellCheck="false" readOnly placeholder={this.props.question.wrong3}></textarea>
             </div>
             
           </div>
