@@ -13,6 +13,7 @@ body {
   color: $body-default-color;
   font-family: $body-default-font-family;
   font-size: $base-font-size;
+  line-height: 1.6;
 }
 
 h1 {
@@ -22,7 +23,14 @@ h1 {
 
 h2 {
   font-size: $large-font-size;
-  margin-bottom: $space;
+  font-weight: 300;
+  margin-bottom: 3rem;
+}
+
+h3 {
+  font-size: $large-font-size - .4rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
 }
 
 p {
@@ -40,4 +48,30 @@ input[type=text], input[type=email], input[type=password], textarea {
   font-family: $body-default-font-family;
   margin-bottom: $space;
   padding: $input-spacing;
+}
+
+// 
+
+table
+{
+   border-collapse:collapse;
+   height: 35rem;
+   margin: 1rem 3rem 6rem 3rem;
+   width: 22rem;
+}
+tr
+{
+   border-bottom: 1px solid $grey;
+   padding-bottom: 5rem;
+}
+.last
+{
+   border-bottom: none;
+}
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: left;
 }

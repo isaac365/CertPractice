@@ -22,7 +22,7 @@ Tracker.autorun(() => {
   Session.set('isNavOpen', false);
 
   if(selectedQuestionId) {
-    browserHistory.replace(`/dashboard/${selectedQuestionId}`);
+    browserHistory.replace(`/courses/20764C/study/${selectedQuestionId}`);
   }
 });
 

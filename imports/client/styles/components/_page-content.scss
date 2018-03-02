@@ -9,6 +9,17 @@
   }
 }
 
+.page-content__dashboard {
+
+  height: $page-content-height;
+  margin: 0 auto;
+  max-width: $site-max-width;
+
+  @include desktop {
+    padding: $large-space $space;
+  }
+}
+
 .page-content__sidebar {
   display: flex;
   transition: left .3s ease;
@@ -41,3 +52,4 @@
     width: $page-content-main-width;
   }
 }
+

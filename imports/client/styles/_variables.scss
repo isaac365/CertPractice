@@ -5,7 +5,7 @@ $light-grey: #f9f9f9;
 $dark-grey: #777777;
 
 //body
-$body-background-color: #fafafa;
+$body-background-color: #F8F8F8;
 $body-default-color: #333333;
 $body-default-font-family: Helvetica, Arial, sans-serif;
 
@@ -39,6 +39,7 @@ $button-secondary-border-color: $grey;
 $header-bg: $brand-primary;
 $header-color: white;
 $header-height: 6rem;
+$overview-header: 15rem;
 
 //Item
 $item-border-width: 4px;
@@ -47,3 +48,4 @@ $item-border-width: 4px;
 $page-content-sidebar-width: 35rem;
 $page-content-main-width: calc(#{$site-max-width} - #{$page-content-sidebar-width});
 $page-content-height: calc(100vh - #{$header-height});
+$overview-content-height: calc(100vh - 35vh);
