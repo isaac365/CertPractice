@@ -18,6 +18,7 @@ export class Editor extends React.Component{
         wrong3: ''
     };
   }
+
   handleAnswerChange(e) {
     const answer1 = e.target.value;
     this.setState({answer1})
@@ -47,6 +48,16 @@ export class Editor extends React.Component{
     this.props.call('questions.remove', this.props.question._id);
     this.props.browserHistory.push('/courses/20764C/study');
   }
+  resetView() {
+    this.setState({
+      question: '',
+      answer1: '',
+      wrong1: '',
+      wrong2: '',
+      wrong3: ''
+    })
+  }
+
   componentDidUpdate(prevProps, preState) {
     const currentQuestionId = this.props.question ? this.props.question._id : undefined ;
     const prevQuestionId = prevProps.question ? prevProps.question._id : undefined ;
@@ -62,19 +73,6 @@ export class Editor extends React.Component{
     }
   }
   render() {
-    // Shuffle sort
-    let shuffleSort = () => (0.5 - Math.random());
-
-    // Get your textareas
-    let txtAreas = Array.from(document.querySelectorAll('.random textarea'))
-
-    // Define a few grid areas
-    let styles = ["one", "two", "three", "four"];
-
-    // Shuffle textareas and add the styles in order by index
-    txtAreas.sort(shuffleSort).forEach((textarea, i) => {
-      textarea.classList.add(styles[i])
-    })
 
     if (this.props.question) {
       if(Meteor.userId() == this.props.question.userId) {
@@ -91,20 +89,46 @@ export class Editor extends React.Component{
           </div>
         );
       } else {
-        return (
+          const randomSet = () => {
+            let shuffleSort = () => (0.5 - Math.random());
+          
+            // Get your textareas
+            let txtAreas = Array.from(document.querySelectorAll('.random textarea'))
+          
+            // Define a few grid areas
+            let styles = ["one", "two", "three", "four"];
+          
+            // Shuffle textareas and add the styles in order by index
+            txtAreas.sort(shuffleSort).forEach((textarea, i) => {
+              textarea.classList.add(styles[i])
+            })
+          }
 
-          
-          
-          <div className="editor">
+          function reloadTxt () {
+            let x = [];
+            x = document.querySelectorAll(".editor__answers1").length;
+            if (x = 4) {
+              location.reload(false)
+            } else {
+              location.reload(true);
+            }
+          }
+
+        return (
+          <div className="editor"
+          onLoad={randomSet()}
+          >
             <textarea className="editor__question" spellCheck="false" readOnly placeholder={this.props.question.question}></textarea>
 
-            <div className="random">
-              <textarea className="editor__answers1 editor__right" spellCheck="false" readOnly placeholder={this.props.question.answer1}></textarea>
-              <textarea className="editor__answers1 editor__wrong" spellCheck="false" readOnly placeholder={this.props.question.wrong1}></textarea>
-              <textarea className="editor__answers1 editor__wrong" spellCheck="false" readOnly placeholder={this.props.question.wrong2}></textarea>
-              <textarea className="editor__answers1 editor__wrong" spellCheck="false" readOnly placeholder={this.props.question.wrong3}></textarea>
-            </div>
+            <div className="random" 
             
+            // onLoad={reloadTxt()}
+            >
+              <textarea className="editor__answers1 editor__right" spellCheck="false" readOnly  placeholder={this.props.question.answer1}></textarea>
+              <textarea className="editor__answers1 editor__wrong" spellCheck="false" readOnly  placeholder={this.props.question.wrong1}></textarea>
+              <textarea className="editor__answers1 editor__wrong" spellCheck="false" readOnly  placeholder={this.props.question.wrong2}></textarea>
+              <textarea className="editor__answers1 editor__wrong" spellCheck="false" readOnly  placeholder={this.props.question.wrong3}></textarea>
+            </div>            
           </div>
         );
       }
