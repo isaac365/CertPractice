@@ -1,21 +1,24 @@
 import React from 'react';
 
 import PrivateHeader from './PrivateHeader';
-import QuestionList from './QuestionList';
-import Editor from './Editor';
 
 export default () => {
 	return (
 		<div>
-			<PrivateHeader title="Study"/>
-			<div className="page-content" >
-				<div className="page-content__sidebar" >
-					<QuestionList/>
+			<PrivateHeader title="Dashboard"/>
+			<div className="page-content__dashboard" >
+				<div>
+				<h1>Select a course</h1>
 				</div>
-				<div className="page-content__main">
-					<Editor/>
+
+				<div className="courses">
+					<a href="/courses/20764c" className="button--link">20764C: Administering a SQL Database Infrastructure</a>
 				</div>
+
+
+
 			</div>
+
 		</div>
 	);
 };

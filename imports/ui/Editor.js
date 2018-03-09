@@ -45,7 +45,7 @@ export class Editor extends React.Component{
   }
   handleRemoval() {
     this.props.call('questions.remove', this.props.question._id);
-    this.props.browserHistory.push('/dashboard');
+    this.props.browserHistory.push('/courses/20764C/study');
   }
   componentDidUpdate(prevProps, preState) {
     const currentQuestionId = this.props.question ? this.props.question._id : undefined ;
